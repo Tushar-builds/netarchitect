@@ -1,0 +1,98 @@
+{
+  "profile": "metro_man",
+  "media": {
+    "profile": "metro_man",
+    "selected_medium": "Cat6a",
+    "transceiver": "10GBASE-T",
+    "distance_m": 22,
+    "attenuation_warning": "Copper attenuation and insertion loss must be validated for long patch runs; keep runs within 100 m.",
+    "explanation": "Selected Cat6a because the link distance is 22 m, which is within the 100-metre copper channel limit. This satisfies the IEEE Ethernet reach objective for structured twisted-pair cabling."
+  },
+  "routing": {
+    "protocol": "OSPF",
+    "topology": "Single-area backbone with end-site reachability",
+    "areas": [
+      0
+    ],
+    "as_number": 65010,
+    "details": "Use OSPF Area 0 as the single-area backbone for a single AS with fewer than 50 subnets.",
+    "explanation": "Selected OSPF Area 0 because the network operates within a single autonomous system and contains fewer than 50 subnets. This keeps the routing domain simple, loop-free, and consistent with documented enterprise design guidance."
+  },
+  "vlsm_allocations": [
+    {
+      "name": "HQ_LAN",
+      "host_requirement": 180,
+      "prefix": 24,
+      "network_address": "10.20.0.0",
+      "subnet_mask": "255.255.255.0",
+      "wildcard_mask": "0.0.0.255",
+      "first_usable": "10.20.0.1",
+      "last_usable": "10.20.0.254",
+      "default_gateway": "10.20.0.1",
+      "broadcast_address": "10.20.0.255",
+      "total_usable_addresses": 254,
+      "address_utilization_efficiency": 70.87,
+      "explanation": "Allocated a /24 subnet because 180 hosts require 254 usable addresses, which provides 70.87% utilization without overlapping adjacent allocations."
+    },
+    {
+      "name": "BRANCH_A",
+      "host_requirement": 120,
+      "prefix": 25,
+      "network_address": "10.20.1.0",
+      "subnet_mask": "255.255.255.128",
+      "wildcard_mask": "0.0.0.127",
+      "first_usable": "10.20.1.1",
+      "last_usable": "10.20.1.126",
+      "default_gateway": "10.20.1.1",
+      "broadcast_address": "10.20.1.127",
+      "total_usable_addresses": 126,
+      "address_utilization_efficiency": 95.24,
+      "explanation": "Allocated a /25 subnet because 120 hosts require 126 usable addresses, which provides 95.24% utilization without overlapping adjacent allocations."
+    },
+    {
+      "name": "BRANCH_B",
+      "host_requirement": 100,
+      "prefix": 25,
+      "network_address": "10.20.1.128",
+      "subnet_mask": "255.255.255.128",
+      "wildcard_mask": "0.0.0.127",
+      "first_usable": "10.20.1.129",
+      "last_usable": "10.20.1.254",
+      "default_gateway": "10.20.1.129",
+      "broadcast_address": "10.20.1.255",
+      "total_usable_addresses": 126,
+      "address_utilization_efficiency": 79.37,
+      "explanation": "Allocated a /25 subnet because 100 hosts require 126 usable addresses, which provides 79.37% utilization without overlapping adjacent allocations."
+    },
+    {
+      "name": "VOICE",
+      "host_requirement": 60,
+      "prefix": 26,
+      "network_address": "10.20.2.0",
+      "subnet_mask": "255.255.255.192",
+      "wildcard_mask": "0.0.0.63",
+      "first_usable": "10.20.2.1",
+      "last_usable": "10.20.2.62",
+      "default_gateway": "10.20.2.1",
+      "broadcast_address": "10.20.2.63",
+      "total_usable_addresses": 62,
+      "address_utilization_efficiency": 96.77,
+      "explanation": "Allocated a /26 subnet because 60 hosts require 62 usable addresses, which provides 96.77% utilization without overlapping adjacent allocations."
+    },
+    {
+      "name": "MGMT",
+      "host_requirement": 35,
+      "prefix": 26,
+      "network_address": "10.20.2.64",
+      "subnet_mask": "255.255.255.192",
+      "wildcard_mask": "0.0.0.63",
+      "first_usable": "10.20.2.65",
+      "last_usable": "10.20.2.126",
+      "default_gateway": "10.20.2.65",
+      "broadcast_address": "10.20.2.127",
+      "total_usable_addresses": 62,
+      "address_utilization_efficiency": 56.45,
+      "explanation": "Allocated a /26 subnet because 35 hosts require 62 usable addresses, which provides 56.45% utilization without overlapping adjacent allocations."
+    }
+  ]
+}

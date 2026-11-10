@@ -1,0 +1,26 @@
+{
+  "profile": "global_wan",
+  "sites": 4,
+  "buildings": 1,
+  "endpoints": 2000,
+  "link_distances": {
+    "backbone": 4500,
+    "wan": 1800,
+    "cloud": 1200
+  },
+  "root_network": "172.16.0.0/16",
+  "host_requirements": [
+    {"name": "CITY_A", "hosts": 600},
+    {"name": "CITY_B", "hosts": 500},
+    {"name": "CITY_C", "hosts": 420},
+    {"name": "CITY_D", "hosts": 300},
+    {"name": "CLOUD_EDGE", "hosts": 150}
+  ],
+  "routing_domain": {
+    "as_count": 2,
+    "as_number": 65050,
+    "external_cloud": true
+  },
+  "media_hint": "single_mode",
+  "explicit_copper_request": false
+}

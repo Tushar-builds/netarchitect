@@ -1,0 +1,26 @@
+{
+  "profile": "campus_lan",
+  "sites": 3,
+  "buildings": 3,
+  "endpoints": 1600,
+  "link_distances": {
+    "backbone": 250,
+    "access": 80,
+    "uplink": 120
+  },
+  "root_network": "192.168.0.0/16",
+  "host_requirements": [
+    {"name": "DATA", "hosts": 500},
+    {"name": "VOICE", "hosts": 120},
+    {"name": "MGMT", "hosts": 50},
+    {"name": "WIRELESS", "hosts": 320},
+    {"name": "SERVERS", "hosts": 70}
+  ],
+  "routing_domain": {
+    "as_count": 1,
+    "as_number": 65001,
+    "external_cloud": false
+  },
+  "media_hint": "mixed",
+  "explicit_copper_request": false
+}

@@ -1,0 +1,26 @@
+{
+  "profile": "metro_man",
+  "sites": 3,
+  "buildings": 1,
+  "endpoints": 450,
+  "link_distances": {
+    "backbone": 22,
+    "wan": 30,
+    "access": 80
+  },
+  "root_network": "10.20.0.0/16",
+  "host_requirements": [
+    {"name": "HQ_LAN", "hosts": 180},
+    {"name": "BRANCH_A", "hosts": 120},
+    {"name": "BRANCH_B", "hosts": 100},
+    {"name": "MGMT", "hosts": 35},
+    {"name": "VOICE", "hosts": 60}
+  ],
+  "routing_domain": {
+    "as_count": 1,
+    "as_number": 65010,
+    "external_cloud": false
+  },
+  "media_hint": "fiber",
+  "explicit_copper_request": false
+}

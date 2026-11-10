@@ -1,0 +1,98 @@
+{
+  "profile": "campus_lan",
+  "media": {
+    "profile": "campus_lan",
+    "selected_medium": "OM4 Multimode Fiber",
+    "transceiver": "10GBASE-SR, 850nm",
+    "distance_m": 250,
+    "attenuation_warning": "Modal dispersion and connector loss should be reviewed; OM4 is suitable for short-to-medium campus backbones.",
+    "explanation": "Selected OM4 multimode fiber because the link distance is 250 m, which exceeds the copper limit but remains within the practical reach of multimode fiber for backbone runs."
+  },
+  "routing": {
+    "protocol": "OSPF",
+    "topology": "Single-area backbone with end-site reachability",
+    "areas": [
+      0
+    ],
+    "as_number": 65001,
+    "details": "Use OSPF Area 0 as the single-area backbone for a single AS with fewer than 50 subnets.",
+    "explanation": "Selected OSPF Area 0 because the network operates within a single autonomous system and contains fewer than 50 subnets. This keeps the routing domain simple, loop-free, and consistent with documented enterprise design guidance."
+  },
+  "vlsm_allocations": [
+    {
+      "name": "DATA",
+      "host_requirement": 500,
+      "prefix": 23,
+      "network_address": "192.168.0.0",
+      "subnet_mask": "255.255.254.0",
+      "wildcard_mask": "0.0.1.255",
+      "first_usable": "192.168.0.1",
+      "last_usable": "192.168.1.254",
+      "default_gateway": "192.168.0.1",
+      "broadcast_address": "192.168.1.255",
+      "total_usable_addresses": 510,
+      "address_utilization_efficiency": 98.04,
+      "explanation": "Allocated a /23 subnet because 500 hosts require 510 usable addresses, which provides 98.04% utilization without overlapping adjacent allocations."
+    },
+    {
+      "name": "WIRELESS",
+      "host_requirement": 320,
+      "prefix": 23,
+      "network_address": "192.168.2.0",
+      "subnet_mask": "255.255.254.0",
+      "wildcard_mask": "0.0.1.255",
+      "first_usable": "192.168.2.1",
+      "last_usable": "192.168.3.254",
+      "default_gateway": "192.168.2.1",
+      "broadcast_address": "192.168.3.255",
+      "total_usable_addresses": 510,
+      "address_utilization_efficiency": 62.75,
+      "explanation": "Allocated a /23 subnet because 320 hosts require 510 usable addresses, which provides 62.75% utilization without overlapping adjacent allocations."
+    },
+    {
+      "name": "VOICE",
+      "host_requirement": 120,
+      "prefix": 25,
+      "network_address": "192.168.4.0",
+      "subnet_mask": "255.255.255.128",
+      "wildcard_mask": "0.0.0.127",
+      "first_usable": "192.168.4.1",
+      "last_usable": "192.168.4.126",
+      "default_gateway": "192.168.4.1",
+      "broadcast_address": "192.168.4.127",
+      "total_usable_addresses": 126,
+      "address_utilization_efficiency": 95.24,
+      "explanation": "Allocated a /25 subnet because 120 hosts require 126 usable addresses, which provides 95.24% utilization without overlapping adjacent allocations."
+    },
+    {
+      "name": "SERVERS",
+      "host_requirement": 70,
+      "prefix": 25,
+      "network_address": "192.168.4.128",
+      "subnet_mask": "255.255.255.128",
+      "wildcard_mask": "0.0.0.127",
+      "first_usable": "192.168.4.129",
+      "last_usable": "192.168.4.254",
+      "default_gateway": "192.168.4.129",
+      "broadcast_address": "192.168.4.255",
+      "total_usable_addresses": 126,
+      "address_utilization_efficiency": 55.56,
+      "explanation": "Allocated a /25 subnet because 70 hosts require 126 usable addresses, which provides 55.56% utilization without overlapping adjacent allocations."
+    },
+    {
+      "name": "MGMT",
+      "host_requirement": 50,
+      "prefix": 26,
+      "network_address": "192.168.5.0",
+      "subnet_mask": "255.255.255.192",
+      "wildcard_mask": "0.0.0.63",
+      "first_usable": "192.168.5.1",
+      "last_usable": "192.168.5.62",
+      "default_gateway": "192.168.5.1",
+      "broadcast_address": "192.168.5.63",
+      "total_usable_addresses": 62,
+      "address_utilization_efficiency": 80.65,
+      "explanation": "Allocated a /26 subnet because 50 hosts require 62 usable addresses, which provides 80.65% utilization without overlapping adjacent allocations."
+    }
+  ]
+}

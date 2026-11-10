@@ -1,0 +1,23 @@
+{
+  "profile": "custom_network",
+  "sites": 2,
+  "buildings": 2,
+  "endpoints": 300,
+  "root_network": "10.50.0.0/16",
+  "host_requirements": [
+    {"name": "USER_LAN", "hosts": 150},
+    {"name": "VOICE", "hosts": 50},
+    {"name": "MGMT", "hosts": 20}
+  ],
+  "routing_domain": {
+    "as_count": 1,
+    "as_number": 65022,
+    "external_cloud": false
+  },
+  "link_distances": {
+    "backbone": 180,
+    "access": 60
+  },
+  "media_hint": "mixed",
+  "explicit_copper_request": false
+}

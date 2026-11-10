@@ -1,0 +1,98 @@
+{
+  "profile": "global_wan",
+  "media": {
+    "profile": "global_wan",
+    "selected_medium": "OS2 Single-Mode Fiber",
+    "transceiver": "10GBASE-LR",
+    "distance_m": 4500,
+    "attenuation_warning": "Single-mode fiber is required for long-haul links; optical attenuation and connector loss should be checked per link budget.",
+    "explanation": "Selected OS2 single-mode fiber because the required transmission distance is 4500 m, which exceeds the multimode reach and requires a long-distance optical medium with lower attenuation."
+  },
+  "routing": {
+    "protocol": "Multi-Area OSPF + eBGP",
+    "topology": "Regional OSPF domains connected through BGP for cloud and internet edge reachability",
+    "areas": [
+      0
+    ],
+    "as_number": 65050,
+    "details": "Summarize route advertisements between regional OSPF areas and the cloud edge with BGP route filtering.",
+    "explanation": "Selected Multi-Area OSPF with eBGP because the global WAN includes multiple cities and cloud connectivity. The OSPF domains handle internal route propagation while eBGP preserves provider and VPC routing boundaries."
+  },
+  "vlsm_allocations": [
+    {
+      "name": "CITY_A",
+      "host_requirement": 600,
+      "prefix": 22,
+      "network_address": "172.16.0.0",
+      "subnet_mask": "255.255.252.0",
+      "wildcard_mask": "0.0.3.255",
+      "first_usable": "172.16.0.1",
+      "last_usable": "172.16.3.254",
+      "default_gateway": "172.16.0.1",
+      "broadcast_address": "172.16.3.255",
+      "total_usable_addresses": 1022,
+      "address_utilization_efficiency": 58.71,
+      "explanation": "Allocated a /22 subnet because 600 hosts require 1022 usable addresses, which provides 58.71% utilization without overlapping adjacent allocations."
+    },
+    {
+      "name": "CITY_B",
+      "host_requirement": 500,
+      "prefix": 23,
+      "network_address": "172.16.4.0",
+      "subnet_mask": "255.255.254.0",
+      "wildcard_mask": "0.0.1.255",
+      "first_usable": "172.16.4.1",
+      "last_usable": "172.16.5.254",
+      "default_gateway": "172.16.4.1",
+      "broadcast_address": "172.16.5.255",
+      "total_usable_addresses": 510,
+      "address_utilization_efficiency": 98.04,
+      "explanation": "Allocated a /23 subnet because 500 hosts require 510 usable addresses, which provides 98.04% utilization without overlapping adjacent allocations."
+    },
+    {
+      "name": "CITY_C",
+      "host_requirement": 420,
+      "prefix": 23,
+      "network_address": "172.16.6.0",
+      "subnet_mask": "255.255.254.0",
+      "wildcard_mask": "0.0.1.255",
+      "first_usable": "172.16.6.1",
+      "last_usable": "172.16.7.254",
+      "default_gateway": "172.16.6.1",
+      "broadcast_address": "172.16.7.255",
+      "total_usable_addresses": 510,
+      "address_utilization_efficiency": 82.35,
+      "explanation": "Allocated a /23 subnet because 420 hosts require 510 usable addresses, which provides 82.35% utilization without overlapping adjacent allocations."
+    },
+    {
+      "name": "CITY_D",
+      "host_requirement": 300,
+      "prefix": 23,
+      "network_address": "172.16.8.0",
+      "subnet_mask": "255.255.254.0",
+      "wildcard_mask": "0.0.1.255",
+      "first_usable": "172.16.8.1",
+      "last_usable": "172.16.9.254",
+      "default_gateway": "172.16.8.1",
+      "broadcast_address": "172.16.9.255",
+      "total_usable_addresses": 510,
+      "address_utilization_efficiency": 58.82,
+      "explanation": "Allocated a /23 subnet because 300 hosts require 510 usable addresses, which provides 58.82% utilization without overlapping adjacent allocations."
+    },
+    {
+      "name": "CLOUD_EDGE",
+      "host_requirement": 150,
+      "prefix": 24,
+      "network_address": "172.16.10.0",
+      "subnet_mask": "255.255.255.0",
+      "wildcard_mask": "0.0.0.255",
+      "first_usable": "172.16.10.1",
+      "last_usable": "172.16.10.254",
+      "default_gateway": "172.16.10.1",
+      "broadcast_address": "172.16.10.255",
+      "total_usable_addresses": 254,
+      "address_utilization_efficiency": 59.06,
+      "explanation": "Allocated a /24 subnet because 150 hosts require 254 usable addresses, which provides 59.06% utilization without overlapping adjacent allocations."
+    }
+  ]
+}
